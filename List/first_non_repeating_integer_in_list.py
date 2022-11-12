@@ -1,6 +1,6 @@
 # Implement a function, find_first_unique(lst) that returns the first unique integer in the list.
 def find_first_unique(lst):
-    # time complexity - O(n^2) for the worse case when the non-duplicate is at the last element
+    # time complexity - O(n^2) for the worse case when the non-duplicate number is the last element
     # space complexity - O(1)
     if len(lst) == 0:
         return None
