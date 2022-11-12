@@ -68,4 +68,4 @@ def find_product_3(lst):
 if __name__ == "__main__":
     print(find_product([1, 2, 3, 4]))
     print(find_product_2([1, 2, 3, 4]))
-    print(find_product_3([1, 2, 3, 4]))
+    print(find_product_3([-10, 2, 3, 4]))
