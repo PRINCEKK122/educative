@@ -15,6 +15,21 @@ class SinglyLinkedList:
         self.__head_node = new_node
         return self.__head_node
 
+    def insert_at_tail(self, data):
+        new_node = Node(data)
+
+        if self.is_empty():
+            self.__head_node = new_node
+            return
+
+        node = self.get_head()
+
+        while node.next is not None:
+            node = node.next
+
+        node.next = new_node
+        return self.__head_node
+
     def is_empty(self):
         return self.__head_node is None
 
@@ -36,5 +51,8 @@ if __name__ == "__main__":
     linked_list.insert_at_head(3)
     linked_list.insert_at_head(2)
     linked_list.insert_at_head(1)
+    linked_list.insert_at_tail(4)
+    linked_list.insert_at_tail(5)
+    linked_list.insert_at_head(10)
 
     print(linked_list)
