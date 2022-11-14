@@ -50,6 +50,16 @@ class SinglyLinkedList:
             new_node.next = next_node
         return
 
+    def search(self, value):
+        node = self.__head_node
+
+        while node is not None:
+            if node.data == value:
+                return True
+            node = node.next
+
+        return False
+
     def is_empty(self):
         return self.get_head() is None
 
@@ -75,6 +85,8 @@ if __name__ == "__main__":
     linked_list.insert_at_head(1)
     linked_list.insert_at_tail(4)
     linked_list.insert_at_tail(5)
-    linked_list.insert_at(5, 10)
+    linked_list.insert_at(7, 10)
+    print("Value found", linked_list.search(10))
+    print("Value found", linked_list.search(-1))
 
     print(linked_list)
