@@ -69,7 +69,23 @@ class SinglyLinkedList:
         self.__head_node = head_node.next
         head_node.next = None
 
+    def delete_by_value(self, value):
+        if not self.is_empty():
+            current_node = self.get_head()
+            previous_node = None
 
+            if current_node.data == value:
+                self.delete_at_head()
+                return
+
+            while current_node is not None:
+                if current_node.data == value:
+                    previous_node.next = current_node.next
+                    current_node.next = None
+                    break
+
+                previous_node = current_node
+                current_node = current_node.next
 
     def is_empty(self):
         return self.get_head() is None
@@ -89,17 +105,14 @@ class SinglyLinkedList:
 
 if __name__ == "__main__":
     linked_list = SinglyLinkedList()
-    print("is empty", linked_list.is_empty())
     linked_list.insert_at_head(3)
-    print("is empty", linked_list.is_empty())
     linked_list.insert_at_head(2)
     linked_list.insert_at_head(1)
     linked_list.insert_at_tail(4)
     linked_list.insert_at_tail(5)
     linked_list.insert_at(3, 10)
     print(linked_list)
-    linked_list.delete_at_head()
-    linked_list.delete_at_head()
+    linked_list.delete_by_value(100)
     print("Value found", linked_list.search(10))
     print("Value found", linked_list.search(-1))
 
