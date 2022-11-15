@@ -1,4 +1,4 @@
-from LinkedList.node import Node
+from SinglyLinkedList.node import Node
 
 
 class SinglyLinkedList:
