@@ -87,6 +87,23 @@ class SinglyLinkedList:
                 previous_node = current_node
                 current_node = current_node.next
 
+    def reverse_linked_list(self):
+        if self.is_empty():
+            print("Linked list is empty!")
+            return
+
+        previous_node = None
+        current_node = self.get_head()
+
+        while current_node is not None:
+            next_node = current_node.next
+            current_node.next = previous_node
+            previous_node = current_node
+            current_node = next_node
+
+            self.__head_node = previous_node
+        return
+
     def is_empty(self):
         return self.get_head() is None
 
@@ -112,7 +129,8 @@ if __name__ == "__main__":
     linked_list.insert_at_tail(5)
     linked_list.insert_at(3, 10)
     print(linked_list)
-    linked_list.delete_by_value(100)
+    linked_list.reverse_linked_list()
+    print(linked_list)
     print("Value found", linked_list.search(10))
     print("Value found", linked_list.search(-1))
 
