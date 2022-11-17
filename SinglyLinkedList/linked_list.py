@@ -4,15 +4,17 @@ from SinglyLinkedList.node import Node
 class SinglyLinkedList:
     def __init__(self):
         self.__head_node = None
+        self.__size = 0
 
     def get_head(self):
         return self.__head_node
 
     def insert_at_head(self, data):
         new_node = Node(data)
-
         new_node.next = self.__head_node
         self.__head_node = new_node
+
+        self.__size += 1
         return self.__head_node
 
     def insert_at_tail(self, data):
@@ -28,6 +30,8 @@ class SinglyLinkedList:
             node = node.next
 
         node.next = new_node
+
+        self.__size += 1
         return self.__head_node
 
     def insert_at(self, index, data):
@@ -48,6 +52,8 @@ class SinglyLinkedList:
             next_node = current_node.next
             current_node.next = new_node
             new_node.next = next_node
+
+            self.__size += 1
         return
 
     def search(self, value):
@@ -69,6 +75,34 @@ class SinglyLinkedList:
         self.__head_node = head_node.next
         head_node.next = None
 
+        self.__size -= 1
+
+    def remove_duplicates(self):
+        if self.is_empty():
+            return
+
+        if self.get_head().next is None:
+            return self
+
+        outer_node = self.__head_node
+
+        while outer_node is not None:
+            inner_node = outer_node
+
+            while inner_node is not None:
+                # found a duplicate
+                if inner_node.next is not None:
+                    if outer_node.data == inner_node.next.data:
+                        next_node = inner_node.next.next
+                        inner_node.next = next_node
+                    else:
+                        inner_node = inner_node.next
+                else:
+                    inner_node = inner_node.next
+            outer_node = outer_node.next
+
+        return self
+
     def delete_by_value(self, value):
         if not self.is_empty():
             current_node = self.get_head()
@@ -86,6 +120,8 @@ class SinglyLinkedList:
 
                 previous_node = current_node
                 current_node = current_node.next
+
+            self.__size -= 1
 
     def reverse_linked_list(self):
         if self.is_empty():
@@ -119,6 +155,9 @@ class SinglyLinkedList:
 
         return result
 
+    def __len__(self):
+        return self.__size
+
 
 if __name__ == "__main__":
     linked_list = SinglyLinkedList()
@@ -128,10 +167,18 @@ if __name__ == "__main__":
     linked_list.insert_at_tail(4)
     linked_list.insert_at_tail(5)
     linked_list.insert_at(3, 10)
+    linked_list.insert_at_head(10)
+    linked_list.insert_at_head(10)
+    linked_list.insert_at_head(10)
+    linked_list.insert_at_head(10)
     print(linked_list)
-    linked_list.reverse_linked_list()
+    # linked_list.delete_at_head()
+    linked_list.delete_by_value(1)
+    # linked_list.reverse_linked_list()
     print(linked_list)
     print("Value found", linked_list.search(10))
     print("Value found", linked_list.search(-1))
+    print(len(linked_list))
+    print("remove duplicates", linked_list.remove_duplicates())
 
     print(linked_list)
