@@ -50,33 +50,31 @@ class DoublyLinkedList:
 
         self.__size += 1
 
-    # def remove_head(self):
-    #     if self.is_empty():
-    #         return None
-    #
-    #     if self.__size == 1:
-    #         self.__head = self.__tail = None
-    #     else:
-    #         self.__head = self.__head.next
-    #         self.__head.prev = None
-    #         self.__head.next = None
-    #
-    #     self.__size -= 1
-    #     return self
-
     def remove_head(self):
-        if (self.is_empty()):
+        if self.is_empty():
             return False
-        nodeToRemove = self.__head;
+        node_to_remove = self.__head
         if (self.__size == 1):
-            self.head = None
-            self.tail = None
+            self.__head = self.__tail = None
         else:
-            self.head = nodeToRemove.next
-            self.head.prev = None
-            nodeToRemove.next = None
+            self.__head = node_to_remove.next
+            self.__head.prev = None
+            node_to_remove.next = None
         self.__size -= 1
-        return nodeToRemove.data
+        return node_to_remove.data
+
+    def remove_tail(self):
+        if self.is_empty():
+            return None
+        node_to_remove = self.__tail
+        if self.__size == 1:
+            self.__head = self.__tail = None
+        else:
+            self.__tail = node_to_remove.prev
+            node_to_remove.prev = None
+            self.__tail.next = None
+
+        return node_to_remove.data
 
     def __len__(self):
         return self.__size
@@ -105,7 +103,8 @@ if __name__ == "__main__":
     dll.insert_at_tail(3)
     dll.insert_at_head(0)
     dll.insert_at_head(20)
-    dll.insert_at_tail(15)
+    dll.insert_at_head(15)
     print("Head", dll.remove_head())
+    print("Tail", dll.remove_tail())
     print("Size " + str(len(dll)))
     print(dll)
