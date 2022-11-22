@@ -18,7 +18,7 @@ class DoublyLinkedList:
         if self.is_empty():
             return None
 
-        return self.__head
+        return self.__head.data
 
     def get_tail(self):
         if self.is_empty():
