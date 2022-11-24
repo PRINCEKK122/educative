@@ -1,7 +1,7 @@
 from dll import DoublyLinkedList
 
 
-class Queue:
+class MyQueue:
     def __init__(self):
         self.items = DoublyLinkedList()
 
@@ -19,11 +19,13 @@ class Queue:
 
 # driver code
 if __name__ == "__main__":
-    queue = Queue()
+    queue = MyQueue()
     queue.enqueue(2)
     queue.enqueue(3)
     queue.enqueue(4)
 
+    print("Front", queue.front())
+    print("Back", queue.rear())
     queue.dequeue()
     queue.dequeue()
     # queue.dequeue()
