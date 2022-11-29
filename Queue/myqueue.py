@@ -20,6 +20,9 @@ class MyQueue:
         self.size -= 1
         return self.items.remove_head()
 
+    def __str__(self):
+        return str(self.items)
+
 
 # driver code
 if __name__ == "__main__":
