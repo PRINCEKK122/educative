@@ -4,6 +4,7 @@ from dll import DoublyLinkedList
 class MyQueue:
     def __init__(self):
         self.items = DoublyLinkedList()
+        self.size = 0
 
     def front(self):
         return self.items.get_head()
@@ -12,10 +13,13 @@ class MyQueue:
         return self.items.get_tail()
 
     def enqueue(self, data):
+        self.size += 1
         return self.items.insert_at_tail(data)
 
     def dequeue(self):
+        self.size -= 1
         return self.items.remove_head()
+
 
 # driver code
 if __name__ == "__main__":

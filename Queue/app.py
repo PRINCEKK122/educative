@@ -14,5 +14,14 @@ def find_bin(number):
     return result
 
 
+# Implement the function reverseK(queue, k) which takes a queue and a number “k” as input and reverses the first
+# “k” elements of the queue. An illustration is also provided for your understanding.
+def reverseK(queue: MyQueue, k):
+    # Scenario 1 handles if the queue is empty, or if k is greater than size of queue, or if k is negative
+    pass
+
+
+
 if __name__ == "__main__":
-    print(find_bin(6))
+    print(find_bin(9))
+    print([0] * 10)
