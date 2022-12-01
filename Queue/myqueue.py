@@ -36,5 +36,5 @@ if __name__ == "__main__":
     queue.dequeue()
     queue.dequeue()
     # queue.dequeue()
-    print(queue.items)
+    print(queue)
 

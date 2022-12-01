@@ -24,12 +24,13 @@ class Stack:
         self.stack_size -= 1
         return self.stack_list.pop()
 
+    def __str__(self):
+        return str(self.stack_list)
+
 # test code
 if __name__ == "__main__":
     myStack = Stack()
     myStack.push(1)
     myStack.push(2)
 
-    print(myStack.pop())
-
-    print(myStack.size())
+    print(myStack)

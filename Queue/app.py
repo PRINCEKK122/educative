@@ -36,12 +36,21 @@ def reverseK(queue: MyQueue, k):
     return queue
 
 
+
+
 if __name__ == "__main__":
-    print(find_bin(9))
-    print([0] * 10)
+    # print(find_bin(9))
     my_queue = MyQueue()
 
     for i in range(15):
         my_queue.enqueue(i)
 
     print(reverseK(my_queue, 4))
+
+    stack = Stack()
+    stack.push(2)
+    stack.push(97)
+    stack.push(4)
+
+    print("sort stack", sort_stack(stack))
+    print(123497)

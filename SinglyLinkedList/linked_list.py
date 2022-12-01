@@ -174,29 +174,6 @@ class SinglyLinkedList:
 
 
 if __name__ == "__main__":
-    # linked_list = SinglyLinkedList()
-    # linked_list.insert_at_head(3)
-    # linked_list.insert_at_head(2)
-    # linked_list.insert_at_head(1)
-    # linked_list.insert_at_tail(4)
-    # linked_list.insert_at_tail(5)
-    # linked_list.insert_at(3, 10)
-    # linked_list.insert_at_head(10)
-    # linked_list.insert_at_head(10)
-    # linked_list.insert_at_head(10)
-    # linked_list.insert_at_head(10)
-    # print(linked_list)
-    # # linked_list.delete_at_head()
-    # linked_list.delete_by_value(1)
-    # # linked_list.reverse_linked_list()
-    # print(linked_list)
-    # print("Value found", linked_list.search(10))
-    # print("Value found", linked_list.search(-1))
-    # print(len(linked_list))
-    # print("remove duplicates", linked_list.remove_duplicates())
-
-    # print(linked_list)
-
     linked_lists1 = SinglyLinkedList()
     linked_lists1.insert_at_tail(1)
     linked_lists1.insert_at_tail(2)
