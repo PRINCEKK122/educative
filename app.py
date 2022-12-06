@@ -18,13 +18,29 @@ def sort_stack(stack: Stack):
 
     return stack
 
+# A string containing a postfix mathematic expression.
+# Each digit is considered to be a separate number, i.e., there are no double digit numbers.
+def evaluate_post_fix(exp):
+    stack = Stack()
+
+    for char in exp:
+        if char.isdigit():
+            stack.push(char)
+        else:
+            left = stack.pop()
+            right = stack.pop()
+            stack.push(str(eval(right + char + left)))
+
+    return int(float(stack.pop()))
+
 if __name__ == "__main__":
     stack = Stack()
     stack.push(2)
     stack.push(97)
     stack.push(4)
+    stack.push(0)
     stack.push(-20)
     stack.push(-2)
 
     print("Sorted stack", sort_stack(stack))
-    print(2)
+    print(evaluate_post_fix("921*-8-4+"))
